@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Searching</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div ng-app="search" ng-controller="control">
+        Enter String <input type="text" ng-model="inputString"> <br>
+        Search String <input type="text" ng-model="searchChar"><br>
+        <button ng-click="searchString()">Search</button>
+        <p>{{result}}</p>
+    </div>
+    <script>
+        angular.module("search", []).controller("control", function($scope){
+            $scope.inputString = "";
+            $scope.searchChar = "";
+            $scope.result = "";
+            //$scope.count = "";
+
+            $scope.searchString = () => {
+                var position = $scope.inputString.indexOf($scope.searchChar);
+
+                if(position !== -1){
+                    $scope.result = "Index: " + position; 
+                }else{
+                    $scope.result = "Not Found";
+                }
+                
+                //const str = 'apple';
+
+
+                // var str = $scope.inputString;
+                // $scope.result = "Str: " + str;
+                // var index = {};
+                // for (let char of str.toLowerCase()) {
+                //     index[char] = index[char] + 1 || 1;
+                // }
+                // console.log(index);
+                // $scope.result = "Index: " + index;
+
+
+
+
+                // //let str = "apple";
+                // let str = $scope.inputString;
+                // let obj = {};
+                // for(let i=0;i<str.length;i++)
+                // {
+                // if(obj[str[i]]==undefined)
+                // {
+                //     obj[str[i]]=1;
+                // }
+                // else
+                // {
+                //     obj[str[i]]+=1;
+                // }
+                // }
+                // console.log(obj);
+                // $scope.result = "Frequency: " + obj;
+
+
+                // let freq={};
+                // for(let i=0; i<$scope.inputString.length; i++){
+                //     let char = $scope.inputString[i];
+                //     //if(freq[char])
+                //     if(freq[$scope.inputString[i]]==undefined)
+                //     {
+                //         //freq[char]++;
+                //         freq[$scope.inputString[i]] = 1;
+                //     }
+                //     else
+                //     {
+                //         //freq[char] = 1;
+                //         freq[$scope.inputString[i]] += 1;
+                //     }
+                // }
+                // $scope.result = "Frequency: " + freq;
+
+
+                //     if(position !== -1){
+                //         $scope.result = "Position: " + position;
+                //         $scope.count = count;
+                        
+                //     }
+                // }
+                // if(count === 0){
+                //     $scope.result = "Not Found";
+                // }
+
+
+                // function getFrequency(string) {
+                //     var freq = {};
+                //     for (var i=0; i<string.length;i++) {
+                //         var character = string.charAt(i);
+                //         if (freq[character]) 
+                //         {
+                //             freq[character]++;
+                //         } 
+                //         else 
+                //         {
+                //             freq[character] = 1;
+                //         }
+                //     }
+                //     return freq;
+                // };
+            }
+        });
+    </script>
+</body>
+</html>

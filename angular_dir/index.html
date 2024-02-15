@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Angular JS Directives</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script> 
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+        .container{
+            border: 1px solid red ;
+        }
+        .input-div{
+            border: 1px solid blue;
+            text-align: center;
+        }
+        input{
+            padding: 10px;
+        }
+        .input-label{
+            margin-top: 7px;
+            margin-right: 9rem;
+            font-size: 13px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div ng-app="myApp" ng-controller="control">
+            
+            <div class="input-div">
+                <p class="input-label">First Name</p> <input type="text" ng-model="fname" placeholder="first name"> <br>
+                <p class="input-label">Last Name</p> <input type="text" ng-model="lname" placeholder="last name"> <br>
+                <p class="input-label">Email ID</p> <input type="text" ng-model="email" placeholder="email">
+            </div>
+
+            <p>First Name: {{fname}}</p>
+            <p>Last Name: {{lname}}</p>
+            <p>Email ID: {{email}}</p>
+    
+            Hobbies
+            <li ng-repeat="x in myHobbies">
+                {{ x.hobby }}
+            </li>
+        </div>
+    </div>
+    
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('control', function($scope){
+            $scope.fname;
+            $scope.lname;
+            $scope.email;
+
+            $scope.myHobbies = [
+                {hobby: 'Badminton'},
+                {hobby: 'Video Games'},
+                {hobby: 'Gym'}
+            ];
+        });
+    </script>
+</body>
+</html>
